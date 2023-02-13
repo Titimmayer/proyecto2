@@ -254,9 +254,6 @@ mostrar.addEventListener("click", function  () {
     style: 'mapbox://styles/mapbox/streets-v12', // style URL
     center: [1,1], // starting position [lng, lat]
     zoom: 1 // starting 
-   
-    
-
   }); 
 
   
