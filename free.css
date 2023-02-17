@@ -178,3 +178,12 @@ label {
   color: #fff;
 }
 
+
+
+#juego{
+  display: none;
+  place-content: center;
+}
+#guardar{
+  
+}

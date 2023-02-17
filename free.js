@@ -9,6 +9,10 @@ import { collection,
   updateDoc,
   deleteDoc  } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-firestore.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, GithubAuthProvider   } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-auth.js";
+const pn = document.getElementById("logi").value
+    const vg = document.getElementById("lati").value
+
+  
 
 
 
@@ -28,6 +32,8 @@ const firebaseConfig = {
   const providergithub = new GithubAuthProvider();
 
 const email = document.getElementById("email");
+const btnma = document.getElementById("mapaaa");
+
 const pass= document.getElementById("pass");
 const btncrear = document.getElementById("crear");
 const btnlog = document.getElementById("log");
@@ -38,8 +44,18 @@ const google = document.getElementById("google");
 const providerfacebook = new FacebookAuthProvider();
 const Facebook = document.getElementById("facebook");
 const github = document.getElementById("github");
+const juego11 = document.getElementById("game1");
+const btnconti = document.getElementById("continuar");
+
+juego11.addEventListener("click",function(){
+  document.getElementById("documen").style.display  = "none";
+  document.getElementById("juego").style.display  = "block";
+  document.getElementById("guardar").style.display  = "inline-block";
+
+})
 
 
+ 
 
 btncrear.addEventListener("click", function(){
 
@@ -91,6 +107,9 @@ btncerrar.addEventListener("click", function(){
         
 
 })
+const NombreCom = document.getElementById("nomCom");
+const Edd = document.getElementById("edad");
+const genero = document.getElementById("gene");
 
 guardar.addEventListener("click",async() =>{
   try {
@@ -98,6 +117,7 @@ guardar.addEventListener("click",async() =>{
       nombre:`${NombreCom.value} `,
       Edad:`${Edd.value} `,
       sexo:`${genero.value} `,
+      score: score
       
     });
     console.log("Document written with ID: ", docRef.id);
@@ -196,20 +216,6 @@ github.addEventListener('click', function () {
 })
 
 
-
-crearbtn.addEventListener("click", async () => {
-  try {
-      await setDoc(doc(db, "users", NombreCom.value), {
-          nombre: NombreCom.value,
-          edad: Edd.value,
-          sexo: genero.value,
-      });
-      alert(`Documento ${NombreCom.value} creado!`);
-  } catch (error) {
-      alert(error);
-  }
-});
-
 mostrarbd.addEventListener("click", async () => {
   tabla.innerHTML =
       `<tr>
@@ -233,22 +239,6 @@ mostrarbd.addEventListener("click", async () => {
       </tr>`;
   });
 });
-
-guardarbtn.addEventListener("click", async () => {
-  const docRef = doc(db, "users", idnombre.value);
-  const docSnap = await getDoc(docRef);
-
-  if (docSnap.exists()) {
-      NombreCom.value = docSnap.data().nombre;
-      Edd.value = docSnap.data().edad;
-      genero.value = docSnap.data().sexo;
-
-      alert("los datos se guardaron corectamente")
-  } else {
-      // doc.data() will be undefined in this case
-      alert("error al guardar ")
-  }
-});
 buscarbtn.addEventListener("click", async()=>{
   const docRef = doc(db, "users", idnombre.value);
   const docSnap = await getDoc(docRef);
@@ -267,13 +257,15 @@ buscarbtn.addEventListener("click", async()=>{
 borrar.addEventListener("click", async()=>{
   await deleteDoc(doc(db, "users", idnombre.value));
 });
-
+    
+btnma.addEventListener("click", function () {
+  document.getElementById("map").style.display="block "
 
   mapboxgl.accessToken = 'pk.eyJ1IjoidGl0aW1tYXllciIsImEiOiJjbGR2dXhhYTEwMTYzM3Bwa3RmOTZ2ZTVtIn0.31vAWCbTRcZ76OVAocSP2A';
   const map = new mapboxgl.Map({
     container: 'map', // container ID
     style: 'mapbox://styles/mapbox/streets-v12', // style URL
-    center: [0, 0], // starting position [lng, lat]
+    center: [pn.value, vg.value], // starting position [lng, lat]
     zoom: 1 // starting zoom
   });
 
@@ -291,3 +283,4 @@ borrar.addEventListener("click", async()=>{
   });
 
 
+})
