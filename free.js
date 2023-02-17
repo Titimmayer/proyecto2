@@ -39,18 +39,6 @@ const providerfacebook = new FacebookAuthProvider();
 const Facebook = document.getElementById("facebook");
 const github = document.getElementById("github");
 
-/* formulario */
-const NombreCom = document.getElementById('nomCom');
-const Edd = document.getElementById('edad');
-const genero = document.getElementById('gene');
-const crearbtn = document.getElementById('crearbtn');
-const mostrarbd = document.getElementById('mbd');
-const tabla = document.getElementById('tabla');
-const guardarbtn = document.getElementById('gd');
-const idnombre = document.getElementById('idNOM');
-const borrar = document.getElementById('delete');
-const buscarbtn = document.getElementById('buscador');
-
 
 
 btncrear.addEventListener("click", function(){
@@ -301,4 +289,4 @@ mostrar.addEventListener("click", function  () {
                 document.getElementById("map") .style.display = "none"
               
                             
-                          })
+                          });
