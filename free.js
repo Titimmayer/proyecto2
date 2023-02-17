@@ -116,6 +116,8 @@ signInWithPopup(auth, providerGoogle)
     const user = result.user;
     // ...
     alert('sesion creada')
+    document.getElementById("git").style.display  = "block";
+    document.getElementById("registro").style.display  = "none";
   }).catch((error) => {
     // Handle Errors here.
     const errorCode = error.code;
@@ -147,6 +149,8 @@ signInWithPopup(auth, providerfacebook)
     const accessToken = credential.accessToken;
 
     // ...
+    document.getElementById("git").style.display  = "block";
+    document.getElementById("registro").style.display  = "none";
   })
   .catch((error) => {
     // Handle Errors here.
@@ -175,6 +179,8 @@ github.addEventListener('click', function () {
     const user = result.user;
     // IdP data available using getAdditionalUserInfo(result)
     // ...
+    document.getElementById("git").style.display  = "block";
+    document.getElementById("registro").style.display  = "none";
   }).catch((error) => {
     // Handle Errors here.
     const errorCode = error.code;
