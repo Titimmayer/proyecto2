@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./free.css">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/phaser@3.11.0/dist/phaser.js"></script>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
       </head>
@@ -60,31 +61,33 @@
     <div id="documen">
         <div id="git">
         <label for="">Nombre de usuario</label>
-        <input type="text" placeholder="Escribe Tu Nombre" id="nomCom">
+        <input type="text" placeholder="Escribe Tu Nombre de usuario" id="nomCom">
         <br>
-        <label for="">Edad</label>
-        <input type="number" placeholder="Escribe Tu Edad" id="edad">
+        <label for="">longitud</label>
+        <input type="number" placeholder="Escribe Tu longitud" id="edad">
         <br>
-        <label for="">Sexo</label>
-        <input type="text" placeholder="Escribe Tu Sexo" id="gene">
+        <label for="">latitud</label>
+        <input type="text" placeholder="Escribe tu latitud" id="gene">
         <br>
-        <div style="text-align:center">
-            <button id="mos">mostrar mapa</button>
-           
-        </div> 
-        <br>
-        <div style="text-align:center">
-
-            <button id="ocul">ocultar mapa</button>
-           
-        </div> 
+  
 
       </div>
     </div>
     <div id="map" class="mapaa"></div>
+    <!-- <div id="juego">
+
+    </div> -->
+
+    <script src="//cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
 
     
     
     <script src="./free.js" type="module"></script>
+    <script src="./index.js" type="module"></script>
+    <script src="./phaser.js" type="module"></script>
+
+
+    
 </body>
 </html>
