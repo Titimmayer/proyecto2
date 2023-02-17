@@ -267,34 +267,27 @@ buscarbtn.addEventListener("click", async()=>{
 borrar.addEventListener("click", async()=>{
   await deleteDoc(doc(db, "users", idnombre.value));
 });
-const ocult_btn = document.getElementById('ocul');
-const mostrar = document.getElementById('mos');
-mostrar.addEventListener("click", function  () {
-  document.getElementById("mos") .style.display = "none"
-  document.getElementById("ocul") .style.display = "block"
-  document.getElementById("map") .style.display = "block"
-  document.getElementById('map').style.visibility = "visible";
+
+
   mapboxgl.accessToken = 'pk.eyJ1IjoidGl0aW1tYXllciIsImEiOiJjbGR2dXhhYTEwMTYzM3Bwa3RmOTZ2ZTVtIn0.31vAWCbTRcZ76OVAocSP2A';
   const map = new mapboxgl.Map({
     container: 'map', // container ID
     style: 'mapbox://styles/mapbox/streets-v12', // style URL
-    center: [1,1], // starting position [lng, lat]
-    zoom: 1 // starting 
-  }); 
+    center: [0, 0], // starting position [lng, lat]
+    zoom: 1 // starting zoom
+  });
 
-  
-  
+  // Event listener para el botón "Mostrar mapa"
+  document.getElementById('btn-mostrar').addEventListener('click', function() {
+    const latitud = parseFloat(document.getElementById('input-latitud').value);
+    const longitud = parseFloat(document.getElementById('input-longitud').value);
+    map.setCenter([longitud, latitud]);
+    document.getElementById('map').style.display = 'block';
+  });
+
+  // Event listener para el botón "Ocultar mapa"
+  document.getElementById('btn-ocultar').addEventListener('click', function() {
+    document.getElementById('map').style.display = 'none';
+  });
 
 
- 
-    
-
-              });
-
-              ocult_btn.addEventListener('click', function (){
-                document.getElementById("mos") .style.display = "block"
-                document.getElementById("ocul") .style.display = "none"
-                document.getElementById("map") .style.display = "none"
-              
-                            
-                          });
